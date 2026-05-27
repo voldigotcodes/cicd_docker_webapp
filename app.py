@@ -7,18 +7,25 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     return render_template_string('''
-    <doctype html>
-    <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>CICD Docker Web App</title>
-    </head>
-    <body>
-        <h1>Welcome to the CICD Docker Web App!</h1>
-        <p>This is a simple Flask application running inside a Docker container.</p>
-    </body>
-    </html>
+    <!doctype html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <title>Welcome to the CICD Docker Web App</title>
+          <script src="https://cdn.tailwindcss.com"></script>
+        </head>
+        <body class="min-h-screen bg-slate-950 flex items-center justify-center">
+          <main class="px-6 text-center">
+            <h1 class="text-6xl md:text-8xl font-extrabold tracking-tight bg-gradient-to-r from-cyan-300 via-teal-300 to-blue-900 bg-clip-text text-transparent">
+              Welcome to the CICD Docker Web App
+            </h1>
+            <p class="mt-6 text-lg text-slate-300 tracking-tight bg-gradient-to-r from-cyan-300 via-teal-300 to-blue-900 bg-clip-text text-transparent">
+              This is a simple Flask application designed to demonstrate CI/CD practices with Docker.
+            </p>
+          </main>
+        </body>
+        </html>
     ''')
 
 @app.route('/health')
@@ -76,3 +83,7 @@ def health():
         service=payload["service"],
         timestamp=payload["timestamp"],
     )
+
+if __name__ == '__main__':
+    port = int(os.environ.get("PORT", 8002))
+    app.run(host='0.0.0.0', port=port)

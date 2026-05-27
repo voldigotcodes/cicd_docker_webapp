@@ -1,9 +1,10 @@
 language: python
 python:
   - "3.10"
-
+service:
+  - docker
 install:
   - pip install -r requirements.txt
-
 script:
   - python -m pytest tests/
+  - docker build -t cicd_docker_webapp .
