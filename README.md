@@ -2,7 +2,7 @@
 
 A hands-on learning project to practice containerization, CI/CD pipelines, and cloud deployment.
 
-## Tech Stack (apps)
+## Tech Stack
 
 - **Docker** - Application containerization
 - **Travis CI** - Continuous integration and testing
@@ -24,7 +24,7 @@ A hands-on learning project to practice containerization, CI/CD pipelines, and c
 docker build -t cicd_docker_webapp .
 
 # Run the container
-docker run -p 5000:5000 cicd_docker_webapp
+docker run -p 8002:8002 cicd_docker_webapp
 ```
 
 ## CI/CD Pipeline
