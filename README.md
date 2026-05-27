@@ -10,8 +10,6 @@ A hands-on learning project to practice containerization, CI/CD pipelines, and c
 
 ## Getting Started
 
-heroku
-
 ### Prerequisites
 
 - Docker
