@@ -12,11 +12,11 @@ before_deploy:
   - test -n "$HEROKU_API_KEY" || { echo "HEROKU_API_KEY is not set"; exit 1; }
   - heroku stack:set container --app cicd-docker-webapp
   - docker build -t cicd-docker-webapp .
-  - docker tag cicd-docker-webapp:latest registry.heroku.com/cicd-docker-webapp
+  - docker tag cicd-docker-webapp registry.heroku.com/cicd-docker-webapp/web
   - echo "$HEROKU_API_KEY" | docker login --username=_ --password-stdin registry.heroku.com
 
 deploy:
   provider: script
-  script: docker push registry.heroku.com/cicd-docker-webapp && heroku container:release web --app cicd_docker_webapp
+  script: docker push registry.heroku.com/cicd-docker-webapp/web && heroku container:release web --app cicd-docker-webapp
   on:
     branch: main
