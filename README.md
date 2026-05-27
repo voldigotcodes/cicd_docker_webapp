@@ -2,7 +2,7 @@
 
 A hands-on learning project to practice containerization, CI/CD pipelines, and cloud deployment.
 
-## Tech Stack
+## Tech Stack (apps)
 
 - **Docker** - Application containerization
 - **Travis CI** - Continuous integration and testing
