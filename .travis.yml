@@ -17,6 +17,6 @@ before_deploy:
 
 deploy:
   provider: script
-  script: docker push registry.heroku.com/cicd-docker-webapp/web && heroku container:release web --app cicd_docker_webapp
+  script: docker push registry.heroku.com/cicd-docker-webapp && heroku container:release web --app cicd_docker_webapp
   on:
     branch: main
