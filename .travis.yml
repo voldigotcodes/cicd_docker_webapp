@@ -9,8 +9,10 @@ script:
   - python -m pytest tests/
   
 before_deploy:
+  - test -n "$HEROKU_API_KEY" || { echo "HEROKU_API_KEY is not set"; exit 1; }
   - docker build -t cicd_docker_webapp .
   - docker tag cicd_docker_webapp:latest registry.heroku.com/cicd_docker_webapp/web
+  - heroku stack:set container --app cicd-docker-webapp
   - echo "$HEROKU_API_KEY" | docker login --username=_ --password-stdin registry.heroku.com
 
 deploy:
