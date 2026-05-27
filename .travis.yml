@@ -7,7 +7,7 @@ install:
   - pip install -r requirements.txt
 script:
   - python -m pytest tests/
-  
+
 before_deploy:
   - test -n "$HEROKU_API_KEY" || { echo "HEROKU_API_KEY is not set"; exit 1; }
   - docker build -t cicd_docker_webapp .
@@ -16,8 +16,7 @@ before_deploy:
   - echo "$HEROKU_API_KEY" | docker login --username=_ --password-stdin registry.heroku.com
 
 deploy:
-    provider:script
-    script: 
-      docker push registry.heroku.com/cicd_docker_webapp/web && heroku container:release web --app cicd_docker_webapp
-      on:
-        branch: main
+  provider: script
+  script: docker push registry.heroku.com/cicd_docker_webapp/web && heroku container:release web --app cicd_docker_webapp
+  on:
+    branch: main
