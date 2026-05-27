@@ -18,7 +18,7 @@ def home():
         <body class="min-h-screen bg-slate-950 flex items-center justify-center">
           <main class="px-6 text-center">
             <h1 class="text-6xl md:text-8xl font-extrabold tracking-tight bg-gradient-to-r from-cyan-300 via-teal-300 to-blue-900 bg-clip-text text-transparent">
-              Welcome to the CICD Docker Web App
+              Welcome to the CICD Docker Web App!
             </h1>
             <p class="mt-6 text-lg text-slate-300 tracking-tight bg-gradient-to-r from-cyan-300 via-teal-300 to-blue-900 bg-clip-text text-transparent">
               This is a simple Flask application designed to demonstrate CI/CD practices with Docker.
